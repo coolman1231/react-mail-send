@@ -14,19 +14,27 @@ function QuoteDetailSeven(props) {
  
 
   const goNavigation = () => {
+ 
     const templateParams = {
-      from_name: "Anastasi",
-      from_email: "superstar0428@yandex.com",
-      to_name: 'andreipedrov@yandex.com',
+      from_name:  "Anastasi",
+      to_name: "andreipedrov@yandex.com",
       subject: "this is the first message",
       message_html: "this is the first message",
     };
-    emailjs.send(
-      'gmail',
-      'template_XXXXXXXX',
-        templateParams,
-      'user_XXXXXXXXXXXXXXXXXXXX'  
-    )
+emailjs
+      .send("gmail", "portfoliositecontact", templateParams, "id given from your EmailJS template")
+      .then(
+        function(response) {
+       
+          console.log("SUCCESS!" );
+        },
+        function(err) {
+          console.log("Your message was not able to be sent");
+        }
+      );
+
+
+
     //  onlineworkkw@gmail.com  
     // emailjs.send('andreipedrov@yandex.com', 'portfoliositecontact',templateParams, 'andreipedrov@yandex.com')
     //   .then(function (response) {
